@@ -1,6 +1,7 @@
 module "service" {
   source = "/home/jhtoigo/projetos/linuxtips/terraform-aws-aca-ecs-service-module"
 
+  region                      = var.region
   cluster_name                = var.cluster_name
   service_name                = var.service_name
   service_port                = var.service_port
@@ -8,6 +9,9 @@ module "service" {
   service_memory              = var.service_memory
   service_listener            = data.aws_ssm_parameter.listener.value
   service_task_execution_role = aws_iam_role.main.arn
+
+  environment_variables = var.environment_variables
+  capabilities          = var.capabilities
 
   vpc_id = data.aws_ssm_parameter.vpc_id.value
   private_subnets = [
