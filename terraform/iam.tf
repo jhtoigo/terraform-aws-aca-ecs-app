@@ -5,11 +5,11 @@ resource "aws_iam_role" "main" {
     Statement = [
       {
         Action = "sts:AssumeRole"
-        Effect = "Allow"
-        Sid    = ""
         Principal = {
           Service = "ecs-tasks.amazonaws.com"
         }
+        Effect = "Allow"
+        Sid    = ""
       },
     ]
   })
