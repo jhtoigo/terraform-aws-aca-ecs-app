@@ -23,3 +23,5 @@ variable "ssm_private_subnet_3" {}
 variable "capabilities" {}
 
 variable "environment_variables" {}
+
+variable "service_healthcheck" {}
