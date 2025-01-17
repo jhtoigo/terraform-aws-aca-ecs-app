@@ -2,6 +2,11 @@ variable "region" {}
 
 variable "service_name" {}
 
+variable "container_image" {
+  type        = string
+  description = "Image with tag for deploying the application to ECS"
+}
+
 variable "cluster_name" {}
 
 variable "ssm_vpc_id" {}
