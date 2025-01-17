@@ -1,5 +1,5 @@
 module "service" {
-  source = "/home/jhtoigo/projetos/linuxtips/terraform-aws-aca-ecs-service-module"
+  source = "github.com/jhtoigo/terraform-aws-aca-ecs-service-module?ref=v1"
 
   region                      = var.region
   cluster_name                = var.cluster_name
