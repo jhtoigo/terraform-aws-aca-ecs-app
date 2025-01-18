@@ -1,5 +1,5 @@
 module "service" {
-  source = "github.com/jhtoigo/terraform-aws-aca-ecs-service-module?ref=v1"
+  source = "github.com/jhtoigo/terraform-aws-aca-ecs-service-module?ref=v1.1.0"
 
   region                      = var.region
   cluster_name                = var.cluster_name
@@ -50,4 +50,13 @@ module "service" {
   scale_tracking_requests = var.scale_tracking_requests
 
   alb_arn = data.aws_ssm_parameter.alb_arn.value
+
+  efs_volumes = [{
+    volume_name      = "volume-de-exemplo"
+    file_system_id   = aws_efs_file_system.main.id
+    file_system_root = "/"
+    mount_point      = "/mnt/efs"
+    readonly         = false
+
+  }]
 }
