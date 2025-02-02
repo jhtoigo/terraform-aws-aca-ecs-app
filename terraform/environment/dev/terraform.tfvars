@@ -12,7 +12,7 @@ service_memory = 512
 
 ssm_vpc_id = "/linuxtips-aca-ecs/vpc/vpc_id"
 
-ssm_listener = "/linuxtips-aca-ecs/ecs/lb/listenernet"
+ssm_listener = "/linuxtips-aca-ecs/ecs/lb_internal/listenernet"
 
 ssm_private_subnet_1 = "/linuxtips-aca-ecs/vpc/subnet-private-us-east-1a"
 
@@ -20,7 +20,7 @@ ssm_private_subnet_2 = "/linuxtips-aca-ecs/vpc/subnet-private-us-east-1b"
 
 ssm_private_subnet_3 = "/linuxtips-aca-ecs/vpc/subnet-private-us-east-1c"
 
-ssm_alb = "/linuxtips-aca-ecs/ecs/lb/id"
+ssm_alb = "/linuxtips-aca-ecs/ecs/lb_internal/id"
 
 environment_variables = [
   {
@@ -57,7 +57,7 @@ service_launch_type = [{
 service_task_count = "3"
 
 service_hosts = [
-  "app.linuxtips.demo"
+  "app.linuxtips-aca-ecs.internal.com"
 ]
 
 scale_type   = "requests_tracking"
@@ -82,3 +82,5 @@ scale_in_cooldown            = 60
 
 scale_tracking_cpu      = 50
 scale_tracking_requests = 30
+
+ssm_service_discovery_namespace = "/linuxtips-aca-ecs/ecs/cloudmap/namespace"

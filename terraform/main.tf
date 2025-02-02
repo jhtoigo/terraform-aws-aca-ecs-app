@@ -1,5 +1,5 @@
 module "service" {
-  source = "github.com/jhtoigo/terraform-aws-aca-ecs-service-module?ref=v1.2.0"
+  source = "github.com/jhtoigo/terraform-aws-aca-ecs-service-module?ref=v1.3.0"
 
   region                      = var.region
   cluster_name                = var.cluster_name
@@ -70,4 +70,7 @@ module "service" {
     readonly         = false
 
   }]
+
+  service_discovery_namespace = data.aws_ssm_parameter.ssm_service_discovery_namespace.value
+
 }
